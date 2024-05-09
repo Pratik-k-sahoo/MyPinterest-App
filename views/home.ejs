@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/header.ejs') %>
+    <title>PINTEREST</title>
+  </head>
+  <body
+  >
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="home-section pt-5">
+      <div class="mt-5 ">
+        <div class="container m-4 p-5 mx-auto bg-white rounded-5" style="width: 500px;">
+          <div class="p-5 pt-0 pb-0">
+            <h1 class="fw-bold" style="font-size: 30px;">Welcome To Pinterest</h1>
+          <form method="post" action="/user/login">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Username</label
+              >
+              <input
+                type="text"
+                class="form-control rounded-4 bg-primary-subtle border border-dark-subtle"
+                id="exampleInputEmail1"
+                name="username"
+                placeholder="Username"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                class="form-control rounded-4 bg-primary-subtle border border-dark-subtle"
+                id="exampleInputPassword1"
+              />
+            </div>
+            <div class="mb-3">
+              <a class="nav-link fw-bolder" href="#">Forgot your password?</a>
+            </div>
+            <button type="submit" class="btn btn-danger w-100 rounded-5">Submit</button>
+            <div class="m-3 text-center">
+              OR
+            </div>
+            <button type="submit" class="btn btn-primary w-100 rounded-5 mb-3">Continue with Facebook</button>
+            <button type="submit" class="btn btn w-100 rounded-5 mb-3 border border-dark">Sign in with Google</button>
+            <div class="mb-3 text-center">
+              By continuing, you agree to Pinterest's Terms of Service and acknowledge you've read our Privacy Policy. Notice at collection
+            </div>
+            <hr>
+            <div class="text-center">
+              <a class="nav-link fw-bolder" href="/user/signup">Not on Pinterest yet? Sign up</a>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/header.ejs') %>
+    <title>Profile</title>
+  </head>
+  <body style="background: white">
+    <%- include('./partials/nav.ejs') %>
+    <div class="profile-section pt-5">
+      <form
+      id="uploadForm"
+      action="/user/fileUpload"
+      method="post"
+      enctype="multipart/form-data"
+      hidden
+    >
+      <input type="file" name="profileImage" />
+    </form>
+
+    <div class="px-5 border">
+      <div class="position-relative">
+        <span
+          class="position-absolute bg-dark text-center p-2 rounded-circle cursor-pointer"
+          style="top: 115px; left: 52%; width: 40px;"
+          id="uploadicon"
+        >
+          <i class="bi bi-pencil-fill text-light"></i>
+        </span>
+        <div
+          class="mt-5 overflow-hidden border mx-auto rounded-circle"
+          style="width: 150px; height: 150px"
+        >
+          <img
+            src="<%= locals.user.profileImage %>"
+            class="w-100 h-100 mx-auto d-block object-fit-cover"
+            alt="profileImage"
+          />
+        </div>
+      </div>
+      <div class="details-container text-center">
+        <h1 class="fw-bold mt-3 lh-1 fs-2"><%= locals.user.name %></h1>
+        <h2 class="fw-normal lh-1 fs-5">@<%= locals.user.username %></h2>
+        <div class="box-a-tag mt-5">
+          <a
+            href="/user/edit"
+            class="text-decoration-none text-black px-4 h-25 py-1 bg-secondary-subtle rounded-pill fs-6 fw-medium"
+            >Edit</a
+          >
+        </div>
+      </div>
+
+      <div class="btn-holder d-flex justify-content-between mt-5 mb-3">
+        <button type="button" class="fw-bolder px-3 btn bg-danger text-white">Short Post</button>
+        <button type="button" class="px-3 btn bg-danger"><a class="fw-bolder text-decoration-none text-white" href="/user/post">Add New Post</a></button>
+      </div>
+
+      <div class="card-holder">
+        <div class="card overflow-hidden border-0" style="width: 14rem;">
+          <% if (locals.user.posts.length > 0) { %>
+            <img src="<%= locals.user.posts[locals.user.posts.length - 1].image %>" class="object-fit-cover card-img-top rounded-3" alt="..." style="height: 11rem;">
+          <% } %>
+          <div class="card-body px-2">
+            <a href="/post/show" class="text-dark fs-5 fw-bolder d-inline text-decoration-none">All Pins</a>
+            <h3 class="text-secondary card-text fs-6"><%= locals.user.posts.length %> Pin  1y<h3/>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <script>
+      document.querySelector('#uploadicon').addEventListener('click', () => {
+      document.querySelector('#uploadForm input').click();
+    });
+
+    document.querySelector('#uploadForm input').addEventListener('change', () => {
+      document.querySelector('#uploadForm').submit();
+    });
+    </script>
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>

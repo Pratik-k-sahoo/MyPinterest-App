@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/header.ejs') %>
+    <title>Profile</title>
+  </head>
+  <body style="background: white">
+    <%- include('./partials/nav.ejs') %>
+    <div class="post-upload-section pt-5">
+      <div class="container mt-5">
+        <h1 >Create a post</h1>
+        <hr>
+        <div class="form-holder w-50">
+          <form action="/user/post/upload" method="post" enctype="multipart/form-data">
+            <div class="mb-3 mt-5">
+              <label for="formFile" class="form-label px-2 fw-medium fs-5"
+                >Upload a photo</label
+              >
+              <input class="form-control" name="postImage" type="file" id="formFile" />
+            </div>
+            <div class="mb-3">
+              <input name="title" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title">
+            </div>
+            <div class="mb-3">
+              <textarea name="desc" class="form-control" id="exampleFormControlTextarea1" placeholder="Desciption" rows="5" style="resize: none;"></textarea>
+            </div>
+            <div>
+              <button type="submit" class="btn w-100 fw-medium fs-5" style="background-color: red;">Post</butt
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary text-center position-fixed w-100 top-0 z-3">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold fs-2 mx-5 my-auto" href="/">Pinterest</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <% if (locals.user) { %>
+        <div class="navbar-nav w-100 justify-content-end">
+          <div class="nav-lin-holder navbar-nav">
+            <a class="nav-link mx-3 fw-bolder text-dark fs-5 my-auto mt-1" aria-current="page" href="/user/profile">Profile</a>
+            <a class="nav-link mx-3 fw-bolder text-dark fs-5 my-auto mt-1" href="/user/post/feed">Feed</a>
+          </div>
+          <div class="nav-btn-holder mx-5">
+            <button type="button" class="btn btn-danger my-auto mt-2">
+              <a class="text-decoration-none text-white fw-medium" href="/user/logout">Logout</a>
+            </button>
+          </div>
+        </div>
+      <% } else {%>
+        <div class="navbar-nav w-100 justify-content-between">
+          <div class="nav-lin-holder navbar-nav">
+            <a class="nav-link mx-3 fw-bolder text-dark fs-5 my-auto mt-1" aria-current="page" href="/about">About</a>
+            <a class="nav-link mx-3 fw-bolder text-dark fs-5 my-auto mt-1" href="/post/explore">Explore</a>
+          </div>
+          <div class="nav-btn-holder mx-5">
+            <button type="button" class="btn btn-danger my-auto mt-2">
+              <a href="
+              <% if (locals.sign === 'Signup') { %>
+                /user/signup
+              <% } else { %>
+                /
+              <% } %>
+              " class="text-decoration-none text-white fw-medium">Signin</a>
+            </button>
+          </div>
+        </div>
+        <% } %>
+    </div>
+  </div>
+</nav>
